@@ -1,0 +1,194 @@
+//THE COMMENT BELOW IS A NOTE THAT WILL APPEAR IN GENERATED .css, 
+//IT DOES NOT APPLY TO THIS .scss FILE, SO YOU MAY EDIT IT.
+
+//*===========* Stratus CSS Customization *===========*/
+@import "compass/css3";
+
+
+.dateChooserBorderedBottomButtonFocused,
+.dateChooserBorderedBottomButtonSelected,
+.dateChooserBorderedBottomButtonDown,
+.dateChooserBorderedBottomButtonFocusedDown,
+.dateChooserBorderedBottomButtonSelectedDown,
+.dateChooserBorderedBottomButtonOver,
+.dateChooserBorderedBottomButtonFocusedOver,
+.dateChooserBorderedBottomButtonSelectedOver {
+    background-color: $dateChooser_bottom_button_over_bgColor;
+}
+
+.dateChooserFiscalYearCell,
+.dateChooserFiscalYearCellOver,
+.dateChooserFiscalYearCellDown,
+.dateChooserFiscalYearCellDisabled,
+.dateChooserFiscalYearCellSelected,
+.dateChooserFiscalYearCellSelectedDown,
+.dateChooserFiscalYearCellSelectedOver,
+.dateChooserFiscalYearCellSelectedDisabled {
+    color: $dateChooser_header_text_color;
+}
+
+.dateChooserWeekCell,
+.dateChooserWeekCellOver,
+.dateChooserWeekCellDown,
+.dateChooserWeekCellDisabled,
+.dateChooserWeekCellSelected,
+.dateChooserWeekCellSelectedDown,
+.dateChooserWeekCellSelectedOver,
+.dateChooserWeekCellSelectedDisabled {
+    color: $dateChooser_header_text_color;
+}
+
+
+/* ColorPicker drop-shadow */
+.colorPicker {
+    @include box-shadow($window_shadow);
+}
+
+/* header-span button selected background */
+.spannedHeaderButtonSelected {
+    background-color: $listGrid_headerButton_selected_bgColor;
+}
+
+/* disabled grid headers */
+.headerButtonDisabled,
+.headerButtonSelectedDisabled,
+.sorterButtonDisabled,
+.sorterButtonSelectedDisabled {
+    background: $listGrid_headerButton_disabled_bgColor;
+}
+
+/* focused inner glow for spinnerItems */
+.spinnerItemLiteControlFocused,
+.spinnerItemLiteControlFocusedRTL {
+    outline:none;
+    border-color:$select_item_lite_control_focused_border_color;
+    @include box-shadow(inset 0 0 5px 0 $select_item_lite_control_focused_border_color);
+    background-color: $formItem_focused_bgColor;
+}
+
+
+/* pickList drop shadows */
+.pickListMenu {
+    border: $pickList_menu_border;
+    @include box-shadow($window_shadow);
+}
+.pickListMenuBody {
+    border: none;
+}
+
+
+/* custom tabs - thick "contact border" only, red when selected */
+
+@mixin tabButtonContactBorder($tabOrientation, $borderSpec) {
+  @if $tabOrientation == Top { 
+    border-bottom: $borderSpec;
+  } @elseif $tabOrientation == Bottom {
+    border-top: $borderSpec;
+  } @elseif $tabOrientation == Left {
+    border-right: $borderSpec;
+  } @elseif $tabOrientation == Right {
+    border-left: $borderSpec;
+  }
+}
+
+$tabButton_border: $tabButton_border_width solid $standard_border_color;
+
+$tabButton_focused_border: $tabButton_border_width solid $tabButton_focused_border_color;
+
+$tabButton_disabled_border: $tabButton_border_width solid $tabButton_disabled_border_color;
+
+// vars
+$tabButton_contact_border_width: 2px;
+$tabButton_contact_border_color: transparent;
+$tabButton_contact_border_over_color: grey;
+$tabButton_contact_border_selected_over_color: #4b9afa;
+// block vars
+$tabButton_contact_border: $tabButton_contact_border_width solid $tabButton_contact_border_color;
+$tabButton_contact_border_over_border: $tabButton_contact_border_width solid $tabButton_contact_border_over_color;
+$tabButton_contact_border_selected_over_border: $tabButton_contact_border_width solid $tabButton_contact_border_selected_over_color;
+
+
+.tabButtonTop,
+.tabButtonBottom,
+.tabButtonLeft,
+.tabButtonRight {
+  background-color: $tabButton_bgColor;
+  color: $tabButton_color !important;
+  border: $tabButton_border;
+  @include border-radius(0px);
+  @include box-shadow(none);
+}
+.tabButtonTop { border-bottom: $tabButton_contact_border; }
+.tabButtonBottom { border-top: $tabButton_contact_border; }
+.tabButtonLeft { border-right: $tabButton_contact_border; }
+.tabButtonRight { border-left: $tabButton_contact_border; }
+
+@each $style in Top, Bottom, Left, Right {
+
+.tabButton#{$style}Over,
+.tabButton#{$style}Down,
+.tabButton#{$style}FocusedDown,
+.tabButton#{$style}Focused,
+.tabButton#{$style}FocusedOver {
+  border: $tabButton_border;
+  @include border-radius(0px);
+  @include box-shadow(none);
+  background-color: #e2e2e2;
+  color: black !important;
+  @include tabButtonContactBorder($style, $tabButton_contact_border_over_border);
+}
+
+
+.tabButton#{$style}Selected,
+.tabButton#{$style}SelectedOver,
+.tabButton#{$style}SelectedDown {
+  border: $tabButton_border;
+  @include border-radius(0px);
+  @include box-shadow(none);
+  background-color: $tabButton_selected_bgColor;
+  color: black !important;
+  @include tabButtonContactBorder($style, $tabButton_contact_border_selected_over_border);
+}
+
+.tabButton#{$style}SelectedFocused,
+.tabButton#{$style}SelectedFocusedOver,
+.tabButton#{$style}SelectedFocusedDown {
+  border: $tabButton_focused_border;
+  @include border-radius(0px);
+  @include box-shadow(none);
+  background-color: $tabButton_selected_bgColor;
+  color: black !important;
+  @include tabButtonContactBorder($style, $tabButton_contact_border_selected_over_border);
+}
+
+.tabButton#{$style}Disabled,
+.tabButton#{$style}SelectedDisabled {
+  border: $tabButton_disabled_border;
+  background-color: $tabButton_disabled_bgColor;
+}
+
+.tabButton#{$style}Over,
+.tabButton#{$style}SelectedOver {
+    background-color: #e2e2e2;
+}
+
+.tabButton#{$style}SelectedFocused {
+    background-color: #e4e4e4;
+}
+
+.tabButton#{$style}SelectedFocusedOver {
+    background-color: #cccccc;
+    border-color: #adadad;
+    @include tabButtonContactBorder($style, $tabButton_contact_border_selected_over_border);
+}
+
+.tabButton#{$style}Down,
+.tabButton#{$style}SelectedDown,
+.tabButton#{$style}SelectedFocusedDown {
+    border: $tabButton_border;
+    @include tabButtonContactBorder($style, $tabButton_contact_border_selected_over_border);
+    background-color: #e2e2e2;
+    @include box-shadow(inset 0 0 5px 0 #9a9a9a);
+}
+
+}

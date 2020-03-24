@@ -1,0 +1,28 @@
+/* circle and square */
+
+circle,
+rect {
+    fill: green;
+    stroke: black;
+}
+.red > circle,
+.red > rect {
+    fill: red;
+}
+
+/* box of bouncy text */
+
+.bouncy > text {
+    fill: green;
+}
+.bouncy > rect {
+    fill: yellow;
+}
+
+.bouncy-red > text {
+    fill: red;
+}
+.bouncy-red > rect {
+    /* light orange */;
+    fill: #FAB57F 
+}

@@ -1,0 +1,11 @@
+<HLayout ID="componentsLayout" autoDraw="false" membersMargin="10">
+    <members>
+        <ListGrid ID="listGrid" autoDraw="false" autoFetchData="true" width="600" height="400" />        
+        <VLayout  membersMargin="5">
+            <members>
+                <DynamicForm ID="editForm" autoDraw="false" />
+                <Button ID="saveButton" title="Save" autoDraw="false" layoutAlign="center" disabled="true"/>
+            </members>
+        </VLayout>
+    </members>
+</HLayout>

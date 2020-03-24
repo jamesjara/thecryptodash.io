@@ -1,0 +1,23 @@
+<?xml-stylesheet type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     preserveAspectRatio="none"
+     width="100%" height="100%" viewBox="0 0 50 50">
+    <defs>
+        <radialGradient id="radialGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" style="stop-color:white;
+                                     stop-opacity:0" />
+            <stop offset="0" style="stop-color:blue;stop-opacity:1">
+                <animate 
+                     attributeName="offset" 
+                     from="1"
+                     to="0.5"
+                     dur="1s"
+                     repeatCount="indefinite"/>
+            </stop>
+        </radialGradient>
+    </defs>
+    <ellipse cx="25" cy="25" rx="25" ry="25" fill="url(#radialGrad)" />
+    <text x="7.5" y="28.5" style="font-size:7pt" fill="white">Click Me</text>
+    <text x="7" y="28" style="font-size:7pt" fill="black">Click Me</text>
+</svg> 

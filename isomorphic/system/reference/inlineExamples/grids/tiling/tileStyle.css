@@ -1,0 +1,41 @@
+.commonName,
+.commonNameOver,
+.commonNameSelected,
+.commonNameSelectedOver,
+.animalText,
+.animalTextOver,
+.animalTextSelected,
+.animalTextSelectedOver,
+.endangered,
+.threatened,
+.notEndangered {
+    font-size:9pt;  
+}
+
+.commonName,
+.commonNameOver,
+.commonNameSelected,
+.commonNameSelectedOver {
+    color:darkblue;
+    font-weight:bold;    
+}
+
+.animalImage,
+.animalImageOver,
+.animalImageSelected,
+.animalImageSelectedOver {
+    padding-bottom:5px;
+}
+
+.endangered {
+    color:red;
+    font-weight:bold;
+}
+
+.threatened {
+    color:orange;    
+}
+
+.notEndangered {
+    color:green;    
+}

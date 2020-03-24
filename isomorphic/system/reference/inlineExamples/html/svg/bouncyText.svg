@@ -1,0 +1,12 @@
+<?xml-stylesheet type="text/css" href="htmlSvgImg.css" ?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     class="bouncy" preserveAspectRatio="none"
+     width="100%" height="100%" viewBox="0 0 50 30">
+    <rect x="0" y="0" width="50" height="30" stroke-width="0"></rect>
+    <text id="TextElement" x="0" y="6"
+          style="text-color:purple;font-family:Verdana;font-size:6pt">SVG!
+        <animateMotion path="M 0 0 L 15 24 L 30 0 L 15 24 L 0 0"
+                       begin="0s" dur="4s" repeatCount="indefinite"/>
+    </text>
+</svg>

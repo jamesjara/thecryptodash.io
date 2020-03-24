@@ -1,0 +1,84 @@
+
+<ListGrid dataSource="countryDS" autoFetchData="true" ID="CountryGrid" height="*"
+          selectionAppearance="checkbox">
+    <fields>
+        <ListGridField name="countryCode"/>
+        <ListGridField name="countryName"/>
+        <ListGridField name="capital"/>
+    </fields>
+    <recordClick>
+            <Action target="PreviewDetailViewer" name="viewSelectedData" mapping="viewer" />
+    </recordClick>
+</ListGrid>
+
+
+<IButton ID="EditButton" title="Edit">
+    <enableWhen fieldName="CountryGrid.numSelected" operator="equals">
+        <value xsi:type="xsd:int">1</value>
+    </enableWhen>
+    <click>isc.say(&quot;This button would go to an editing interface&quot;);</click>
+</IButton>
+
+
+<IButton ID="DeleteButton" title="Delete">
+    <enableWhen fieldName="CountryGrid.anySelected" operator="equals" value="true" />
+    <click>
+            <Action>
+                <target>CountryGrid</target>
+                <name>markSelectionRemoved</name>
+            </Action>
+    </click>
+</IButton>
+
+
+<HLayout ID="Toolbar" height="30" layoutMargin="10" membersMargin="10">
+    <members>
+        <Canvas ref="EditButton"/>
+        <Canvas ref="DeleteButton"/>
+    </members>
+</HLayout>
+
+
+<VLayout ID="LeftLayout" width="500" height="100%">
+    <members>
+        <Canvas ref="CountryGrid"/>
+        <Canvas ref="Toolbar"/>
+    </members>
+</VLayout>
+
+
+<DetailViewer dataSource="countryDS" ID="PreviewDetailViewer">
+    <fields>
+        <DetailViewerField name="countryCode"/>
+        <DetailViewerField name="countryName"/>
+        <DetailViewerField name="capital"/>
+        <DetailViewerField name="government"/>
+        <DetailViewerField name="member_g8"/>
+        <DetailViewerField name="continent"/>
+        <DetailViewerField name="independence"/>
+        <DetailViewerField name="area"/>
+        <DetailViewerField name="population"/>
+        <DetailViewerField name="gdp"/>
+        <DetailViewerField name="article"/>
+    </fields>
+</DetailViewer>
+
+
+<SectionStack ID="PreviewStack" visibilityMode="multiple">
+    <sections>
+        <SectionStackSection title="Preview" autoShow="true">
+            <items>
+                <Canvas ref="PreviewDetailViewer"/>
+            </items>
+        </SectionStackSection>
+    </sections>
+    <visibleWhen fieldName="CountryGrid.anySelected" operator="equals" value="true" />
+</SectionStack>
+
+
+<HLayout ID="MainLayout" width="100%" height="100%">
+    <members>
+        <Canvas ref="LeftLayout"/>
+        <Canvas ref="PreviewStack"/>
+    </members>
+</HLayout>
